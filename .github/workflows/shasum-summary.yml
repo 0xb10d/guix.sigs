@@ -18,3 +18,5 @@ jobs:
         run: python3 contrib/shasum-summary/main.py ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} > $GITHUB_STEP_SUMMARY
       - name: show summary
         run: cat $GITHUB_STEP_SUMMARY
+      - name: add a notice
+        run: echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
